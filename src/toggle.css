@@ -1,0 +1,63 @@
+
+/* slider */
+@property --color-1 {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: white;
+  }
+  
+  .smaller-contain {
+    height: var(--height-cont);
+    width: var(--width-cont);
+    display: flex;
+  }
+  .button {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: var(--color-1);
+    width: 100%;
+    height: 100%;
+    border-radius: 200px;
+    position: relative;
+    transition: --color-1 500ms;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  }
+  .button::before {
+    position: absolute;
+    content:'';
+    top: var(--button-margin);
+    left: var(--button-margin);
+    height: var(--ball-size);
+    width: var(--ball-size);
+    border-radius: 50%;
+    background: linear-gradient(180deg, lightgrey, grey);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 1);
+    transition: transform 500ms ease-in-out;
+    z-index: 5;
+    cursor: pointer; 
+  }
+  #check {
+    display: none;
+  }
+  #check:checked + .button {
+    --color-1: rgb(128, 211, 128);
+  }
+  #check:checked + .button::before {
+    transform: translateX(var(--height-cont));
+  }
+  #check:checked + .button::after {
+    transform: translateX(var(--height-cont));
+  }
+  .far {
+    position: absolute;
+    font-size: var(--text-size);
+    top: var(--text-ypos);
+    right: var(--text-xpos);
+  }
+  .cel {
+    position: absolute;
+    font-size: var(--text-size);
+    top: var(--text-ypos);
+    left: var(--text-xpos);
+  }  
