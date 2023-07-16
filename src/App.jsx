@@ -36,7 +36,7 @@ function App() {
     }
     
     const fetchData = async (searchTerm) => {
-        const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=dbcaf16f1d3a49be9f5184154230607&q=${searchTerm}&aqi=no`)
+        const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=dbcaf16f1d3a49be9f5184154230607&q=${searchTerm}&aqi=no`)
         const data = await response.json()
         
         if (data.error) {
